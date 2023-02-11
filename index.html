@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Anime Watch Website</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: lightgray;
+      }
+      h1 {
+        text-align: center;
+        color: darkblue;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .search-box {
+        margin: 2em 0;
+        text-align: center;
+      }
+      .search-input {
+        padding: 0.5em;
+        font-size: 1.2em;
+        border-radius: 5px;
+        border: none;
+      }
+      .anime-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .anime-item {
+        width: 20%;
+        margin: 1em;
+        text-align: center;
+      }
+      .anime-thumbnail {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .video-container {
+        display: none;
+        margin-top: 2em;
+      }
+      .video-player {
+        width: 80%;
+        height: 500px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Anime Watch Website</h1>
+    <div class="container">
+      <div class="search-box">
+        <input type="text" class="search-input" placeholder="Search anime...">
+      </div>
+      <div class="anime-list">
+        <div class="anime-item" data-video="https://www.youtube.com/embed/LrVNQQhBzvE">
+          <img class="anime-thumbnail" src="3.webp" alt="Anime Thumbnail">
+          <p>Plunderer</p>
+        </div>
+        <div class="anime-item" data-video="https://www.youtube.com/embed/9bZkp7q19f0">
+  <img class="anime-thumbnail" src="2.jpg" alt="Anime Thumbnail">
+  <p>Attack on Titan</p>
+</div>
+<div class="anime-item" data-video="https://www.youtube.com/embed/8LWYjvE-VLw">
+  <img class="anime-thumbnail" src="1.jpg" alt="Anime Thumbnail">
+  <p>My Hero Academia</p>
+</div>
+<div class="anime-item" data-video="https://www.youtube.com/embed/UvEiSaKpkLw">
+  <img class="anime-thumbnail" src="4.jpg" alt="Anime Thumbnail">
+  <p>Death Note</p>
+</div>
+<div class="anime-item" data-video="https://www.youtube.com/embed/rvTzaKjgK7s">
+  <img class="anime-thumbnail" src="5.jpg" alt="Anime Thumbnail">
+  <p>Fullmetal Alchemist: Brotherhood</p>
+</div>
+<div class="anime-item" data-video="https://www.youtube.com/embed/1yKqLNtGKcA">
+  <img class="anime-thumbnail" src="6.jpg" alt="Anime Thumbnail">
+  <p>Naruto</p>
+</div>
+<div class="anime-item" data-video="https://www.youtube.com/embed/iPntgddm-gU">
+  <img class="anime-thumbnail" src="7.webp" alt="Anime Thumbnail">
+  <p>One Piece</p>
+</div>
+<div class="anime-item" data-video="https://www.youtube.com/embed/zuo-JhN7-G0">
+  <img class="anime-thumbnail" src="8.jpeg" alt="Anime Thumbnail">
+  <p>Dragon Ball Z</p>
+</div>
+<div class="anime-item" data-video="https://www.youtube.com/embed/zuo-JhN7-G0">
+  <img class="anime-thumbnail" src="9.jpg" alt="Anime Thumbnail">
+  <p>hentai</p>
+</div>
+        <!-- Add more anime items here -->
+      </div>
+      <div class="video-container">
+        <iframe class="video-player" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+    <script>
+      $('.anime-item').click(function() {
+        var videoUrl = $(this).data('video');
+        $('.video-player').attr('src', videoUrl);
+        $('.video-container').show();
+      });
+
+      $('.search-input').on('input', function() {
+        var keyword = $(this).val().toLowerCase();
+         $('.anime-item').each(function() {
+          var title = $(this).text().toLowerCase();
+          if (title.includes(keyword)) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
